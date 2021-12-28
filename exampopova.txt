@@ -1,0 +1,30 @@
+My first change popova
+
+
+Private Sub CommandButton1_Click()
+i = 7
+Do While Worksheets("Накладная").Cells(i, 1).Value <> ""
+summ = summ + Worksheets("Накладная").Cells(i, 5).Value
+i = i + 1
+Loop
+Cells(i, 5) = summ
+If summ >= 1000000 Then sk = summ * 0.1
+If summ >= 100000 Then sk = summ * 0.5
+If summ >= 10000 Then sk = summ * 0.1
+Cells(i, 6) = sk
+pl = summ - sk
+Cells(i, 7) = pl
+Cells(i, 1) = "Итоговвая стоимость"
+Cells(i, 7).Interior.Color = vbRed
+Cells(i, 1).Interior.Color = vbRed
+Cells(i, 6).Interior.Color = vbRed
+Cells(i, 5).Interior.Color = vbRed
+
+End Sub
+
+Private Sub CommandButton2_Click()
+Range("a7:g13").ClearContents
+Range("b3:b4").ClearContents
+Range("d3:d4").ClearContents
+Range("a7:g13").Interior.Color = vbWhite
+End Sub
